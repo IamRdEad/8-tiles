@@ -11,7 +11,7 @@ const Game = () => {
     useEffect(() => {
       const fectBoard = async () =>{
         try{
-          const response = await fetch('http://localhost:5000/api/new');
+          const response = await fetch('https://eight-tiles.onrender.com/api/new');
           const data = await response.json();
           setBoard(data.board);
           setLoading(false);
@@ -28,7 +28,7 @@ const Game = () => {
       const col = index % 3;
       
       try{
-        const response = await fetch('http://localhost:5000/api/move', {
+        const response = await fetch('https://eight-tiles.onrender.com/api/move', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ const Game = () => {
         <Board board={board} onTileClick={handleTileClick} />
         <Controls
             onNewGame={async () => {
-              const response = await fetch('http://localhost:5000/api/new');
+              const response = await fetch('https://eight-tiles.onrender.com/api/new');
               const data = await response.json();
               setBoard(data.board);
               setMoveList([]);

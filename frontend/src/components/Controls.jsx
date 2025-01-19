@@ -9,7 +9,7 @@ const Controls = ({ onNewGame, onUndoMove, onHint }) => {
         label="Undo Move"
         onClick={async () => {
           try {
-            const response = await fetch('http://localhost:5000/api/undo', {
+            const response = await fetch('https://eight-tiles.onrender.com/api/undo', {
               method: 'POST',
             });
             const data = await response.json();
@@ -29,7 +29,7 @@ const Controls = ({ onNewGame, onUndoMove, onHint }) => {
         label="New Game"
         onClick={async () => {
           try {
-            const response = await fetch('http://localhost:5000/api/new'); 
+            const response = await fetch('https://eight-tiles.onrender.com/api/new'); 
             const data = await response.json();
             onNewGame(data.board);
           } catch (error) {
@@ -43,7 +43,7 @@ const Controls = ({ onNewGame, onUndoMove, onHint }) => {
         label="Hint"
         onClick={async () => {
           try {
-            const response = await fetch('http://localhost:5000/api/hint');
+            const response = await fetch('https://eight-tiles.onrender.com/api/hint');
             const data = await response.json();
             if (data.error) {
               alert(data.error);
